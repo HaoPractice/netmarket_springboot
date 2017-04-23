@@ -1,0 +1,8 @@
+db:
+  base:
+    username: u
+    password: p
+    host: localhost
+    port: 3306
+    dbname: netmarket
+    url: jdbc:mysql://${db.base.host}:${db.base.port}/${db.base.dbname}

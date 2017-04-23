@@ -1,0 +1,3 @@
+scanner: 
+  basePackage: com.sf.netmarket.mapper
+  sqlSessionFactoryName: sqlSessionFactory

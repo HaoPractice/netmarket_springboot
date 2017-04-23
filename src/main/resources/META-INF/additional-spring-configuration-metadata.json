@@ -1,0 +1,122 @@
+{"properties": [
+  {
+    "name": "db.base.username",
+    "type": "java.lang.String",
+    "description": "A description for 'db.base.username'"
+  },
+  {
+    "name": "db.base.url",
+    "type": "java.lang.String",
+    "description": "A description for 'db.base.url'"
+  },
+  {
+    "name": "db.base.password",
+    "type": "java.lang.String",
+    "description": "A description for 'db.base.password'"
+  },
+  {
+    "name": "db.base.port",
+    "type": "java.lang.String",
+    "description": "A description for 'db.base.port'"
+  },
+  {
+    "name": "db.base.host",
+    "type": "java.lang.String",
+    "description": "A description for 'db.base.host'"
+  },
+  {
+    "name": "db.base.dbname",
+    "type": "java.lang.String",
+    "description": "A description for 'db.base.dbname'"
+  },
+  {
+    "name": "config.db.base.username",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.username'"
+  },
+  {
+    "name": "config.db.base.password",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.password'"
+  },
+  {
+    "name": "config.db.base.host",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.host'"
+  },
+  {
+    "name": "config.db.base.port",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.port'"
+  },
+  {
+    "name": "config.db.base.url",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.url'"
+  },
+  {
+    "name": "config.db.base.dbname",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.dbname'"
+  },
+  {
+    "name": "config.db.base.dbn.ame",
+    "type": "java.lang.String",
+    "description": "A description for 'config.db.base.dbn.ame'"
+  },
+  {
+    "name": "mybatis.base-package",
+    "type": "java.lang.String",
+    "description": "A description for 'mybatis.base-package'"
+  },
+  {
+    "name": "mybatis.sql-session-factory-name",
+    "type": "java.lang.String",
+    "description": "A description for 'mybatis.sql-session-factory-name'"
+  },
+  {
+    "name": "spring.datasource.base.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.base.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource.base.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.base.url'"
+  },
+  {
+    "name": "spring.datasource.base.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.base.username'"
+  },
+  {
+    "name": "spring.datasource.base.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.base.password'"
+  },
+  {
+    "name": "spring.datasource.base.name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.base.name'"
+  },
+  {
+    "name": "spring.placeholder-locations",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.placeholder-locations'"
+  },
+  {
+    "name": "spring.placeholder-location",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.placeholder-location'"
+  },
+  {
+    "name": "scanner.base-package",
+    "type": "java.lang.String",
+    "description": "A description for 'scanner.base-package'"
+  },
+  {
+    "name": "scanner.sql-session-factory-bean-name",
+    "type": "java.lang.String",
+    "description": "A description for 'scanner.sql-session-factory-name'"
+  }
+]}

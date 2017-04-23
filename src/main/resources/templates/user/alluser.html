@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<#assign a="letter a" />
+	<#assign b=31241243432423 />
+
+
+	<div>
+		a=${a}<br />
+		b=${b}<br /> 
+		b*3=${b * 3 }<br />
+	</div>
+
+	user:${customerListFDSAF!"fasdf"}
+	<br/>
+	<#if customerList ??>
+	<#list customerList ! as customer>
+	userId:${customer.userId}---userId:${customer.username}---- <br/>
+	</#list>
+	<br/>
+	</#if>
+	
+	${customerList?size}
+	end
+</body>
+</html>

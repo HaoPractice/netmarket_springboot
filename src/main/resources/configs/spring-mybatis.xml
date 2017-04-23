@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:property-placeholder location="classpath:config/db.properties" />
+	<!-- <context:property-placeholder location="classpath:config/db2.properties" 
+		/> -->
+	<!-- 当存在多个placeholder标签时，后面声明的会不生效 -->
+
+	<bean id="testDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.test.url}" />
+		<property name="user" value="${jdbc.test.username}" />
+		<property name="password" value="${jdbc.test.password}" />
+		<property name="maxIdleTime" value="10" />
+		<property name="maxPoolSize" value="50" />
+	</bean>
+	<bean id="testTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="testDataSource" />
+	</bean>
+
+	<bean id="baseDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="password" value="${jdbc.base.password}" />
+		<property name="jdbcUrl" value="${jdbc.base.url}" />
+		<property name="user" value="${jdbc.base.username}" />
+		<property name="maxIdleTime" value="10" />
+		<property name="maxPoolSize" value="50" />
+	</bean>
+	<!-- 配置session Factory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="baseDataSource" />
+		<property name="plugins">
+			<list>
+				<bean class="com.sf.netmarket.mapper.intercepter.MyInterceptor" />
+			</list>
+		</property>
+		<property name="configLocation" value="classpath:config/sqlMapConfig.xml" />
+	</bean>
+	<!-- 配置需要扫描mapper的包 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.sf.netmarket.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="baseDataSource" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRES_NEW" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="select*" propagation="SUPPORTS" />
+			<tx:method name="find*" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="mapper"
+			expression="execution(* com.sf.netmarket.mapper..*.*(..))" />
+		<aop:pointcut id="service" expression="execution(* com.sf.service..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="service" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="mapper" />
+	</aop:config>
+</beans>

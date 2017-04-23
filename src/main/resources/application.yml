@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: netmarket
+  datasource:
+    base:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: ${db.base.url}
+      username: ${db.base.username}
+      password: ${db.base.password}
+      name: baseDatasource
+#  config:
+#    location: classpath:configs/mybatis.properties 这样设属性文件的位置是错的，这个属性不是直接用 的，而是用在启动时加参数。 
+  #在配置bean中，通过@PropertySource指定
+  placeholder-location: classpath:configs/mybatis.properties
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  freemarker:
+    cache: false
+    enabled: true
+    template-loader-path:
+    - classpath:/templates/
+    suffix: .html
+    content-type: text/html; charset=utf-8
+server:
+#  address: 192.168.1.1
+  context-path: /netmarket
+  port: 8080
+# 使用 MybatisConfig
+#mybatis:
+#  mapper-locations:
+#  - classpath:mapper/*.xml
+#  type-aliases-package: com.sf.netmarket.model

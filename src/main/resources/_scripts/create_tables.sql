@@ -1,4 +1,4 @@
--- 167.88.113.11
+-- 建表语句
 
 CREATE TABLE `netmarket`.`user_identification` (
   `user_id` INT NULL,

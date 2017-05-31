@@ -22,9 +22,10 @@ public class DatasourceConfig {
    * @author hao
    * @since 2017年4月19日
    */
-  @Bean("baseDatasource1")
+  @Bean("baseDatasource")
   @ConfigurationProperties(prefix = "spring.datasource.base")
   public DataSource baseDatasource() {
-    return DataSourceBuilder.create().build();
+    DataSource build = DataSourceBuilder.create().build();
+    return build;
   }
 }

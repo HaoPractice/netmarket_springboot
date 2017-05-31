@@ -2,6 +2,11 @@ package com.sf.netmarket.viewbean;
 
 import java.io.Serializable;
 
+/**
+ * 给页面返回用户信息
+ * @author hao19
+ *
+ */
 public class UserInfo implements Serializable {
   private static final long serialVersionUID = -9074022823821545072L;
   private String username;
@@ -19,7 +24,7 @@ public class UserInfo implements Serializable {
     return username;
   }
 
-  public String getSecurityId() {
+  public String getUserId() {
     return userId;
   }
 

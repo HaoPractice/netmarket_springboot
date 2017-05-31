@@ -4,16 +4,16 @@ public class UserNotLoginException extends RuntimeException {
 
   private static final long serialVersionUID = 1L;
 
-  private Integer userId;
+  private String fromPath;
   private Integer code;
   private String msg;
 
-  public Integer getUserId() {
-    return userId;
+  public String getFromPath() {
+    return fromPath;
   }
 
-  public void setUserId(Integer userId) {
-    this.userId = userId;
+  public void setFromPath(String fromPath) {
+    this.fromPath = fromPath;
   }
 
   public String getMsg() {
@@ -34,7 +34,7 @@ public class UserNotLoginException extends RuntimeException {
 
   @Override
   public String toString() {
-    return "UserNotLoginException [userId=" + userId + ", code=" + code + ", msg=" + msg + "]";
+    return "UserNotLoginException [fromPath=" + fromPath + ", code=" + code + ", msg=" + msg + "]";
   }
 
 }

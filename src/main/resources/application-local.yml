@@ -1,7 +1,7 @@
 db:
   base:
-    username: u
-    password: p
+    username: root
+    password: fhfh
     host: localhost
     port: 3306
     dbname: netmarket

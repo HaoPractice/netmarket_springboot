@@ -1,15 +1,28 @@
-package com.sf.netmarket.controller;
+package com.sf.netmarket.controller.api;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sf.netmarket.viewbean.ValidateInfo;
+import com.sf.netmarket.bizenum.ClientEnum;
+import com.sf.netmarket.controller.AbstractSecurityController;
+import com.sf.netmarket.service.AuthService;
 
 @RestController
-@RequestMapping("/logout")
-public class LogoutController {
+@RequestMapping("/api/logout")
+public class LogoutApi extends AbstractSecurityController {
+
+  @Autowired
+  AuthService authService;
+
+  private static enum LogoutResult {
+    SUCCESS, NOT_LOGIN
+  }
 
   /**
    * 
@@ -18,9 +31,14 @@ public class LogoutController {
    * @return
    */
   @PostMapping
-  public ValidateInfo logout(@RequestParam("accessToken") String accessToken) {
-    return new ValidateInfo("13", "122","登陆成功");
+  public LogoutResult logout(@RequestParam("accessToken") String accessToken,
+      HttpServletRequest request, HttpServletResponse response) {
+    
+    authService.logout(request, response);
+    // 删除保存的accessToken
+    authService.removeAuthentication(ClientEnum.WEB_PC, getAuthedUserId());
+    return LogoutResult.SUCCESS;
   }
-  
-  
+
+
 }

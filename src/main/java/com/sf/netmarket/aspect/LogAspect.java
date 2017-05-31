@@ -23,25 +23,26 @@ public class LogAspect {
   private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
   
-  @Pointcut("execution(public * com.sf.netmarket.controller.*.*(..))")
+  @Pointcut("execution(public * com.sf.netmarket.controller..*.*(..))")
   public void logAop(){}
   
   @Before("logAop()")
   public void logBefore(JoinPoint joinPoint) {
     ServletRequestAttributes requestAttributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
     HttpServletRequest request = requestAttributes.getRequest();
-    logger.info(request.getRequestURL().toString());
-    logger.info(request.getRequestURI());
-    logger.info(joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName());
-    logger.info(Arrays.deepToString(joinPoint.getArgs()));
+    logger.debug(request.getRequestURL().toString());
+    logger.debug(request.getRequestURI());
+    logger.debug(joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName());
+    logger.debug(Arrays.deepToString(joinPoint.getArgs()));
   }
   
   @After("logAop()")
   public void logAfter() {
-    logger.info("after");
+    logger.debug("after");
   }
   @AfterReturning( returning="object",pointcut="logAop()")
   public void logReturn(Object object) {
-    logger.info(object.toString());
+    // object为controller返回的数据
+    logger.debug(object.toString());
   }
 }

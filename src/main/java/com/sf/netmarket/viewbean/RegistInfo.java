@@ -2,6 +2,11 @@ package com.sf.netmarket.viewbean;
 
 import java.io.Serializable;
 
+/**
+ * 用户提交的注册信息
+ * @author hao19
+ *
+ */
 public class RegistInfo implements Serializable {
   private static final long serialVersionUID = -9074022823821545072L;
   private String bindMail;

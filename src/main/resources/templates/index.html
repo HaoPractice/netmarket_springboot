@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<base href="${rc.getContextPath()}/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<title>一个还没想好名字的应用的首页</title>
+
+<!-- CSS  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="materialize/css/materialize.css" type="text/css"
+	rel="stylesheet" media="screen,projection" />
+<link href="css/index.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+</head>
+<body>
+	<nav class="nav-extended">
+		<div class="nav-wrapper container">
+			<a href="#" class="brand-logo"><img alt="" src="img/logo.png"></a> <a href="#"
+				data-activates="mobile-demo" class="button-collapse"><i
+				class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="">首页</a></li>
+				<li><a href="discovery">发现</a></li>
+				<li>
+					<#if userName??>
+						<a href="userinfo">${userName}</a>
+					<#else>
+						<a href="login">点此登录</a>
+					</#if>
+				</li>
+				<li><a class="dropdown-button" href="#!" data-activates="dropdown1" data-hover=true data-belowOrigin=true>Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li>
+					<#if userName??>
+						<a href="userinfo">${userName}</a>
+					<#else>
+						<a href="login">点此登录</a>
+					</#if>
+				</li>
+				<li><a href="">首页</a></li>
+				<li><a href="discovery">发现</a></li>
+			</ul>
+		</div>
+		<div class="nav-content container">
+			<ul class="tabs tabs-transparent">
+				<li class="tab"><a class="active" href="#showIp">我的IP</a></li>
+				<li class="tab"><a href="#hostIp">hostIp</a></li>
+				<li class="tab"><a href="#test4">Test 4</a></li>
+				<li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- tab -->
+	<div id="showIp" class="col s12">${myip!}</div>
+	<div id="hostIp" class="col s12">${hostIp!}</div>
+	<div id="test3" class="col s12">Test 3</div>
+	<div id="test4" class="col s12">Test 4</div>
+<!-- drop down -->
+<ul id="dropdown1" class="dropdown-content  materialize-red lighten-2">
+  <li><a href="#!"><i class=" material-icons" style="margin-left: 1px;margin-right: 1px;">perm_identity</i>个人中心</a></li>
+  <li><a href="#!"><i class=" material-icons" style="margin-left: 1px;margin-right: 1px;">message</i>私信</a></li>
+  <li><a href="#!"><i class=" material-icons" style="margin-left: 1px;margin-right: 1px;">settings</i>设置</a></li>
+  <li class="divider"><i class=" material-icons" style="margin-left: 1px;margin-right: 1px;">power_settings_new</i>退出</li>
+</ul>
+
+	<div id="index-banner" class="parallax-container">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<br> <br>
+				<h1 class="header center teal-text text-lighten-2">一个还没想好名字的应用的首页</h1>
+				<div class="row center">
+					<h5 class="header col s12 light">我只是个背景图片</h5>
+				</div>
+				<div class="row center">
+					<a href="index.html" id="download-button"
+						class="btn-large waves-effect waves-light teal lighten-1">
+						开始探索这个应用</a>
+				</div>
+				<br> <br>
+
+			</div>
+		</div>
+		<div class="parallax">
+			<img src="img/index/background1.jpg" alt="我只是个背景图片">
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="section">
+
+			<!--   Icon Section   -->
+			<div class="row">
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center brown-text">
+							<i class="material-icons">flash_on</i>
+						</h2>
+						<h5 class="center">Speeds up development</h5>
+
+						<p class="light">We did most of the heavy lifting for you to
+							provide a default stylings that incorporate our custom
+							components. Additionally, we refined animations and transitions
+							to provide a smoother experience for developers.</p>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center brown-text">
+							<i class="material-icons">group</i>
+						</h2>
+						<h5 class="center">User Experience Focused</h5>
+
+						<p class="light">By utilizing elements and principles of
+							Material Design, we were able to create a framework that
+							incorporates components and animations that provide more feedback
+							to users. Additionally, a single underlying responsive system
+							across all platforms allow for a more unified user experience.</p>
+					</div>
+				</div>
+
+				<div class="col s12 m4">
+					<div class="icon-block">
+						<h2 class="center brown-text">
+							<i class="material-icons">settings</i>
+						</h2>
+						<h5 class="center">Easy to work with</h5>
+
+						<p class="light">We have provided detailed documentation as
+							well as specific code examples to help new users get started. We
+							are also always open to feedback and can answer any questions a
+							user may have about Materialize.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="parallax-container valign-wrapper">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row center">
+					<h5 class="header col s12 light">我只是个背景背景图片</h5>
+				</div>
+			</div>
+		</div>
+		<div class="parallax">
+			<img src="img/index/background2.jpg" alt="我只是个背景图片x2">
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="section">
+
+			<div class="row">
+				<div class="col s12 center">
+					<h3>
+						<i class="mdi-content-send brown-text"></i>
+					</h3>
+					<h4>联系我们</h4>
+					<p class="left-align light">锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐锟斤铐烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫烫</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="parallax-container valign-wrapper">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row center">
+					<h5 class="header col s12 light">我只是个背景背景背景图片</h5>
+				</div>
+			</div>
+		</div>
+		<div class="parallax">
+			<img src="img/index/background3.jpg" alt="我只是个背景背景背景图片">
+		</div>
+	</div>
+
+	<footer class="page-footer teal">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Company Bio</h5>
+					<p class="grey-text text-lighten-4"></p>
+
+
+				</div>
+<!-- 				<div class="col l3 s12"> -->
+<!-- 					<h5 class="white-text">Settings</h5> -->
+<!-- 					<ul> -->
+<!-- 						<li><a class="white-text" href="#!">Link 1</a></li> -->
+<!-- 						<li><a class="white-text" href="#!">Link 2</a></li> -->
+<!-- 						<li><a class="white-text" href="#!">Link 3</a></li> -->
+<!-- 						<li><a class="white-text" href="#!">Link 4</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 				<div class="col l3 s12"> -->
+<!-- 					<h5 class="white-text">Connect</h5> -->
+<!-- 					<ul> -->
+<!-- 						<li>应用模板来自：<a class="white-text" -->
+<!-- 							href="http://materializecss.com">materializecss</a></li> -->
+<!-- 						<li><a class="white-text" href="#!">Link 2</a></li> -->
+<!-- 						<li><a class="white-text" href="#!">Link 3</a></li> -->
+<!-- 						<li><a class="white-text" href="#!">Link 4</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				Made by <a class="brown-text text-lighten-3"
+					href="http://materializecss.com">Materialize</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="materialize/js/materialize.js"></script>
+	<script src="js/homepage.js"></script>
+
+</body>
+</html>

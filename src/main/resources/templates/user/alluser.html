@@ -10,20 +10,48 @@
 
 
 	<div>
-		a=${a}<br />
-		b=${b}<br /> 
-		b*3=${b * 3 }<br />
+		a=${a}<br /> b=${b}<br /> b*3=${b * 3 }<br />
 	</div>
 
 	user:${customerListFDSAF!"fasdf"}
-	<br/>
+	<br />
 	<#if customerList ??>
 	<#list customerList ! as customer>
 	userId:${customer.userId}---userId:${customer.username}---- <br/>
 	</#list>
 	<br/>
 	</#if>
+	<br/>
+	<br/>
+	<br/>
+	<h2>switch (customer.userId)</h2>
+	<#switch (customer.userId)!>
+		<#case 111>
+			case 111
+		<#break>
+		<#case 222>
+			case 222
+		<#break>
+		<#case 123>
+			case 123
+		<#break>
+	</#switch>
 	
+	<h2>switch (customer2.userId)</h2>
+	<#if customer2.userId??>
+	<#switch (customer2.userId)! >
+		<#case 111>
+			case 111
+		<#break>
+		<#case 222>
+			case 222
+		<#break>
+		<#case 123>
+			case 123
+		<#break>
+	</#switch>
+	</#if>
+	<hr/>
 	${customerList?size}
 	end
 </body>

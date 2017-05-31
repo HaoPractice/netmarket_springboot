@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+if(typeof(EventSource)!=="undefined"){  
+    var source=new EventSource("serverSendApi");  
+    source.onmessage = function(event){  
+        console.log("event.data=" + event.data);  
+        $("#test").innerHTML += event.data + "<br />";  
+    };
+    source.onerror = function(event){  
+        console.log("error");  
+        console.log(event.data);  
+    };  
+    source.onopen = function(event){  
+        console.log("open");          console.log(event.data);  
+
+    };
+}else{  
+    console.log("此浏览器不支持server-send");  
+}
+</script>
+div::
+
+<div id="test"></div>
+</body>
+</html>

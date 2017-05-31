@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<base href="${rc.getContextPath()}/">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<title>登录</title>
+
+<!-- CSS  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="materialize/css/materialize.css" type="text/css"
+	rel="stylesheet" media="screen,projection" />
+<link href="css/login.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+</head>
+<body>
+	<nav class="nav-extended">
+		<div class="nav-wrapper container">
+			<a href="#" class="brand-logo"><img alt="" src="img/logo.png"></a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i
+				class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="">首页</a></li>
+				<li><a href="discovery">发现</a></li>
+				<li>
+				<li><a href="login">点此登录</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li>
+				<li><a href="login">点此登录</a></li>
+				<li><a href="">首页</a></li>
+				<li><a href="discovery">发现</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- drop down -->
+
+	<div class="container">
+		<div class="row">
+			<div class="s12 m4 l8">
+				    <form class="col s12">
+				<div class="card  darken-1">
+						<div class="card-content ">
+							<span class="card-title">欢迎来到不知名的应用</span>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="account" type="text"> <label
+										for="account">Email</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="password" type="password" class="validate">
+									<label for="password">Password</label>
+								</div>
+							</div>
+						</div>
+					<div class="card-action">
+						<a href="#">登录</a> <a href="#">忘记密码</a>
+					</div>
+				</div>
+					</form>
+			</div>
+		</div>
+	</div>
+
+	<footer class="page-footer teal">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Company Bio</h5>
+					<p class="grey-text text-lighten-4"></p>
+				</div>
+				<!-- 				<div class="col l3 s12"> -->
+				<!-- 					<h5 class="white-text">Settings</h5> -->
+				<!-- 					<ul> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 1</a></li> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 2</a></li> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 3</a></li> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 4</a></li> -->
+				<!-- 					</ul> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="col l3 s12"> -->
+				<!-- 					<h5 class="white-text">Connect</h5> -->
+				<!-- 					<ul> -->
+				<!-- 						<li>应用模板来自：<a class="white-text" -->
+				<!-- 							href="http://materializecss.com">materializecss</a></li> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 2</a></li> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 3</a></li> -->
+				<!-- 						<li><a class="white-text" href="#!">Link 4</a></li> -->
+				<!-- 					</ul> -->
+				<!-- 				</div> -->
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				Made by <a class="brown-text text-lighten-3"
+					href="http://materializecss.com">Materialize</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="materialize/js/materialize.js"></script>
+	<script src="js/homepage.js"></script>
+
+</body>
+</html>

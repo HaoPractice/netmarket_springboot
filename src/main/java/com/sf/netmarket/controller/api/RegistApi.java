@@ -1,4 +1,4 @@
-package com.sf.netmarket.controller;
+package com.sf.netmarket.controller.api;
 
 import java.util.Objects;
 
@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sf.netmarket.bizenum.LoginResult;
+import com.sf.netmarket.controller.AbstractSecurityController;
 import com.sf.netmarket.mapper.CustomerMapper;
 import com.sf.netmarket.model.Customer;
 import com.sf.netmarket.viewbean.RegistInfo;
 import com.sf.netmarket.viewbean.ValidateInfo;
+import com.sf.netmarket.viewbean.ViewResultBean;
 
 @RestController
-@RequestMapping("/regist")
-public class RegistController {
+@RequestMapping("/api/regist")
+public class RegistApi extends AbstractSecurityController{
 
   @Autowired
   CustomerMapper customerMapper;
@@ -30,12 +33,12 @@ public class RegistController {
    */
   @PostMapping
   @Transactional
-  public ValidateInfo regist(@RequestBody RegistInfo registInfo) {
+  public ViewResultBean<ValidateInfo> regist(@RequestBody RegistInfo registInfo) {
     Customer customer = new Customer();
     customer.setUsername(registInfo.getUsername());
     customer.setTelphone(registInfo.getBindTel());
     customer.setPassword(registInfo.getPassword());
     customerMapper.insert(customer);
-    return new ValidateInfo( customer.getUsername(),Objects.toString(customer.getUserId()),"登陆成功");
+    return ViewResultBean.success(new ValidateInfo( customer.getUsername(),Objects.toString(customer.getUserId()),LoginResult.SUCCESS));
   }
 }

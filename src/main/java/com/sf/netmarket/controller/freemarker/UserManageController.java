@@ -37,6 +37,12 @@ public class UserManageController {
     customers.add(e);
     ModelAndView modelAndView = new ModelAndView("user/alluser");
     modelAndView.addObject(customers);
+    Customer customer = new Customer();
+    customer.setUserId(123);
+    modelAndView.addObject("customer",customer);
+    Customer customer2 = new Customer();
+    customer2.setUserId(null);
+    modelAndView.addObject("customer2",customer2);
     return modelAndView;
   }
 }

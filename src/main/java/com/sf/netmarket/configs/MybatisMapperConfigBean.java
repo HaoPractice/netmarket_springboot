@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * org.springframework.context.support.AbstractApplicationContext.refresh()調用
  * invokeBeanFactoryPostProcessor时
- * 
+ * 不能起到配置作用，因为加载placeholder的属性在配置scanner之前。
  * @author hao19
  *
  */

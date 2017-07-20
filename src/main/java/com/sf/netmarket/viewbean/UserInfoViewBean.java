@@ -7,14 +7,14 @@ import java.io.Serializable;
  * @author hao19
  *
  */
-public class UserInfo implements Serializable {
+public class UserInfoViewBean implements Serializable {
   private static final long serialVersionUID = -9074022823821545072L;
   private String username;
   private String userId;
 
-  public UserInfo() {}
+  public UserInfoViewBean() {}
 
-  public UserInfo(String username, String userId) {
+  public UserInfoViewBean(String username, String userId) {
     this();
     this.username = username;
     this.userId = userId;

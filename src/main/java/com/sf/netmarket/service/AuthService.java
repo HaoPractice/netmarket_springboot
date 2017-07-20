@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sf.netmarket.bizenum.ClientName;
 
 public interface AuthService {
+  String getAuthCode(long userId,ClientName clientName);
   void logout(HttpServletRequest request,HttpServletResponse response);
   void removeAuthentication(ClientName clientName, long authedUserId);
   void reloadAuth(String client, Long userId);

@@ -7,14 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sf.netmarket.configs.MybatisConfig;
 import com.sf.netmarket.controller.AbstractSecurityController;
-import com.sf.netmarket.mapper.CustomerMapper;
+import com.sf.netmarket.mapper.UserInfoMapper;
 
 @Controller
 @RequestMapping("")
 public class LoginController extends AbstractSecurityController {
 
   @Autowired
-  CustomerMapper customerMapper;
+  UserInfoMapper userInfoMapper;
   @Autowired
   MybatisConfig mybatisConfig;
 

@@ -1,6 +1,7 @@
 package com.sf.netmarket.controller;
 
-import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +49,7 @@ public abstract class AbstractSecurityController {
       return null;
     }
     String userId = authentication.getName();
-    if (userId == null) {
+    if (userId == null ||"anonymousUser".equals(userId)) {
       if (needAuth) {
         throw new UserNotLoginException();
       }
@@ -69,7 +70,7 @@ public abstract class AbstractSecurityController {
     RequestAttributes currentRequestAttributes = RequestContextHolder.currentRequestAttributes();
     return currentRequestAttributes;
   }
-  protected ServletRequest servletRequest() {
+  protected HttpServletRequest servletRequest() {
     RequestAttributes requestAttributes = requestAttributes();
     if (requestAttributes == null) {
       return null;
@@ -79,5 +80,17 @@ public abstract class AbstractSecurityController {
     }
     ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
     return servletRequestAttributes.getRequest();
+  }
+  protected HttpServletResponse servletResponse() {
+    RequestAttributes requestAttributes = requestAttributes();
+    if (requestAttributes == null) {
+      return null;
+    }
+    if (!(requestAttributes instanceof ServletRequestAttributes)) {
+      return null;
+    }
+    ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+    
+    return servletRequestAttributes.getResponse();
   }
 }

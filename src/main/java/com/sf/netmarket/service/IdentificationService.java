@@ -1,16 +1,23 @@
 package com.sf.netmarket.service;
 
-import com.sf.netmarket.bizenum.IdentifyType;
+import com.sf.netmarket.bizenum.LoginType;
 import com.sf.netmarket.viewbean.BindResult;
-import com.sf.netmarket.viewbean.ValidateInfo;
+import com.sf.netmarket.viewbean.LoginResultInfo;
 
 
 public interface IdentificationService {
 
-  ValidateInfo validatePassword(String username, String encodedPassword);
+  boolean validatePassword(long userId, String password);
 
-  ValidateInfo validateByDynamicCode(String username, String code);
+  LoginResultInfo validateByDynamicCode(String validateKey, String code);
 
-  BindResult bind(Long userId, String identification, IdentifyType identifyType);
+  BindResult bind(Long userId, String identification, LoginType identifyType);
+
+  /**
+   * 根据用户绑定手机或邮箱称获取用户id。
+   * @param username
+   * @return
+   */
+  Long getUserIdByIdentify(String telOrEmail);
 
 }

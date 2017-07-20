@@ -1,5 +1,7 @@
 package com.sf.netmarket.viewbean;
 
+import com.sf.netmarket.controller.api.vo.ViewResult;
+
 /**
  * 用户注册结果
  * @author hao19
@@ -29,11 +31,17 @@ public class ViewResultBean<T> {
     this.code = code;
     this.result = result;
   }
-  
-  public static <T>ViewResultBean<T> success(T t){
-    return new ViewResultBean<>(null,0, t);
+  public ViewResultBean(ViewResult viewResult, T result) {
+	  super();
+	  this.msg = viewResult.getMsg();
+	  this.code = viewResult.getCode();
+	  this.result = result;
   }
-  public static <T>ViewResultBean<T> error(String msg,Integer code){
-    return new ViewResultBean<>(msg,code, null);
+  
+  public static <T>ViewResultBean<T> of(ViewResult viewResult){
+    return new ViewResultBean<>(viewResult, null);
+  }
+  public static <T>ViewResultBean<T> of(ViewResult viewResult,T t){
+    return new ViewResultBean<>(viewResult, t);
   }
 }

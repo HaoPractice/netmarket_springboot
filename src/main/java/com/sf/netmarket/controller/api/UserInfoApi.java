@@ -10,33 +10,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sf.netmarket.controller.AbstractSecurityController;
 import com.sf.netmarket.exception.UserNotLoginException;
-import com.sf.netmarket.mapper.CustomerMapper;
-import com.sf.netmarket.model.Customer;
-import com.sf.netmarket.viewbean.UserInfo;
+import com.sf.netmarket.mapper.UserInfoMapper;
+import com.sf.netmarket.model.UserInfo;
+import com.sf.netmarket.viewbean.UserInfoViewBean;
 
 @RestController
 @RequestMapping("/api/userinfo")
 public class UserInfoApi extends AbstractSecurityController{
   @Autowired
-  private CustomerMapper customerMapper;
+  private UserInfoMapper UserInfoMapper;
   
   @GetMapping("{id}")
-  public UserInfo getUserInfoById(@PathVariable Long id) {
-    Customer selectByPrimaryKey = customerMapper.selectByPrimaryKey(id);
+  public UserInfoViewBean getUserInfoById(@PathVariable Long id) {
+    UserInfo selectByPrimaryKey = UserInfoMapper.selectById(id);
     if (selectByPrimaryKey == null) {
       return null;
     }
-    return new UserInfo(selectByPrimaryKey.getUsername(), selectByPrimaryKey.getUserId().toString());
+    return new UserInfoViewBean(selectByPrimaryKey.getUsername(), selectByPrimaryKey.getUserId().toString());
   }
   
   @GetMapping("")
-  public UserInfo getUserInfo(String name) {
+  public UserInfoViewBean getUserInfo(String name) {
     if (name == null) {
       throw new UserNotLoginException();
     }
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     logger.debug("",authentication);
-    return new UserInfo("13", name);
+    return new UserInfoViewBean("13", name);
   }
   
 }

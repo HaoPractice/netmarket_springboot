@@ -29,3 +29,7 @@ spring:
 #  mapper-locations:
 #  - classpath:mapper/*.xml
 #  type-aliases-package: com.sf.netmarket.model
+  redis:
+    host: localhost
+    port: 6379
+    database: 0

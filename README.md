@@ -42,4 +42,4 @@
 * 配置数据源，事务：
 	* DatasourceConfig.java
 	* MybatisConfig.java
-* 
+* SecurityConfig中配置安全策略，关闭了csrf：..csrf().disable();

@@ -1,5 +1,7 @@
 package com.sf.netmarket.service.impl;
 
+import java.util.UUID;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,5 +32,11 @@ public class AuthServiceImpl implements AuthService {
   public void removeAuthentication(ClientName client, long userId) {
     // TODO Auto-generated method stub
 
+  }
+
+  @Override
+  public String getAuthCode(long userId, ClientName clientName) {
+    // TODO Auto-generated method stub
+    return UUID.randomUUID().toString();
   }
 }

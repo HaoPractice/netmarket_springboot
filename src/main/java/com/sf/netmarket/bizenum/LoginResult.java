@@ -7,5 +7,9 @@ public enum LoginResult {
   private LoginResult(String message) {
     this.message = message;
   }
-  
+
+  public String getMessage() {
+    return message;
+  }
+
 }

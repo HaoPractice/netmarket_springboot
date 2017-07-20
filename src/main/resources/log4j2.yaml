@@ -1,0 +1,40 @@
+Configuration:
+  status: warn
+  name: YAMLConfigTest
+  properties:
+    property:
+      name: filename
+      value: target/test-yaml.log
+  thresholdFilter:
+    level: debug
+  appenders:
+    Console:
+      name: STDOUT
+      PatternLayout:
+        Pattern: '[%p][%d %c{1}]:%m%n'
+    File:
+      name: fileToSave
+      fileName: ${filename}
+      bufferedIO: true
+      PatternLayout:
+        Pattern: '%d %p %C{1.} [%t] %m%n'
+  Loggers:
+    logger:
+    - name: org.apache.logging.log4j.test1
+      level: debug
+      additivity: true
+      ThreadContextMapFilter:
+        KeyValuePair:
+          key: test
+          value: 123
+      AppenderRef:
+        ref: STDOUT
+    - name: com.sf.test
+      level: debug
+      additivity: true #设置是否和root的输出配置叠加生效
+      AppenderRef:
+        ref: fileToSave
+    Root:
+      level: debug #默认级别
+      AppenderRef:
+        ref: STDOUT

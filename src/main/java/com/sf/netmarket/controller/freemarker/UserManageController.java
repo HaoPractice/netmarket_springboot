@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sf.netmarket.mapper.CustomerMapper;
-import com.sf.netmarket.model.Customer;
-import com.sf.netmarket.model.CustomerExample;
+import com.sf.netmarket.mapper.UserInfoMapper;
+import com.sf.netmarket.model.UserInfo;
+import com.sf.netmarket.model.UserInfoExample;
 
 @Controller
 @RequestMapping("user")
 public class UserManageController {
   @Autowired
-  CustomerMapper customerMapper;
+  UserInfoMapper userInfoMapper;
 
   @GetMapping("alluser/{frompage}/{size}")
   public ModelAndView getAllUser(
@@ -29,20 +29,20 @@ public class UserManageController {
     if(size == null || size < 1) {
       size = 20;
     }
-    CustomerExample example = new CustomerExample();
-    List<Customer> customers = customerMapper.selectByExample(example);
-    Customer e = new Customer();
-    e.setUserId(12);
+    UserInfoExample example = new UserInfoExample();
+    List<UserInfo> userInfos = userInfoMapper.selectByExample(example);
+    UserInfo e = new UserInfo();
+    e.setUserId(12L);
     e.setUsername("111name");
-    customers.add(e);
+    userInfos.add(e);
     ModelAndView modelAndView = new ModelAndView("user/alluser");
-    modelAndView.addObject(customers);
-    Customer customer = new Customer();
-    customer.setUserId(123);
-    modelAndView.addObject("customer",customer);
-    Customer customer2 = new Customer();
-    customer2.setUserId(null);
-    modelAndView.addObject("customer2",customer2);
+    modelAndView.addObject(userInfos);
+    UserInfo userInfo = new UserInfo();
+    userInfo.setUserId(123L);
+    modelAndView.addObject("userInfo",userInfo);
+    UserInfo userInfo2 = new UserInfo();
+    userInfo2.setUserId(null);
+    modelAndView.addObject("userInfo2",userInfo2);
     return modelAndView;
   }
 }

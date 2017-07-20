@@ -40,17 +40,22 @@
 	</nav>
 	<!-- drop down -->
 
-	<div class="container">
+	<div class="container" style="height: 700px">
 		<div class="row">
-			<div class="s12 m4 l8">
-				    <form class="col s12">
+			<div class="col s6 m4 l4">
 				<div class="card  darken-1">
-						<div class="card-content ">
-							<span class="card-title">欢迎来到不知名的应用</span>
+					<div class="card-content ">
+						<span class="card-title">欢迎来到什么都没的商城</span>
+						<div class="nav-content container">
+							<ul class="tabs">
+								<li class="tab"><a class="active" href="#login">login</a></li>
+								<li class="tab"><a href="#reg">register</a></li>
+							</ul>
+						</div>
+						<div id="login">
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="account" type="text"> <label
-										for="account">Email</label>
+									<input id="account" type="text"> <label for="account">Email</label>
 								</div>
 							</div>
 							<div class="row">
@@ -59,12 +64,57 @@
 									<label for="password">Password</label>
 								</div>
 							</div>
+							<div class="card-action">
+								<a id="doLogin" href="#">登录</a> <a href="#">忘记密码</a>
+							</div>
+               <div>
+                 <label id="validateLoginMsg" hidden="true"></label>
+               </div>
 						</div>
-					<div class="card-action">
-						<a href="#">登录</a> <a href="#">忘记密码</a>
+
+						<div id="reg">
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="nickname" type="text" class="validate"> <label
+										for="nickname">nickname</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="regAccount" type="text" class="validate"> <label
+										for="regAccount">Email to reg</label>
+								</div>
+								<div>
+									<label id="validateEmailMsg" hidden="true"></label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="regPassword" type="password" class="validate">
+									<label for="regPassword">Password</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="regPassword2" type="password" class="validate">
+									<label for="regPassword2">Repeat Password</label>
+								</div>
+								<div>
+									<label id="validatePwdMsg" hidden="true"></label>
+								</div>
+							</div>
+							<div class="card-action">
+								<a id="doReg" href="#">register</a><label id="validateRegMsg" hidden="true"></label>
+							</div>
+						</div>
 					</div>
 				</div>
-					</form>
+			</div>
+			<div class="col s6 m4 l4">
+				<video class="responsive-video" autoplay="autoplay" loop="loop"
+					style="padding-top: 10px; height: 350px">
+					<source src="img/login/login.mp4" type="video/mp4">
+				</video>
 			</div>
 		</div>
 	</div>
@@ -76,40 +126,20 @@
 					<h5 class="white-text">Company Bio</h5>
 					<p class="grey-text text-lighten-4"></p>
 				</div>
-				<!-- 				<div class="col l3 s12"> -->
-				<!-- 					<h5 class="white-text">Settings</h5> -->
-				<!-- 					<ul> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 1</a></li> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 2</a></li> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 3</a></li> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 4</a></li> -->
-				<!-- 					</ul> -->
-				<!-- 				</div> -->
-				<!-- 				<div class="col l3 s12"> -->
-				<!-- 					<h5 class="white-text">Connect</h5> -->
-				<!-- 					<ul> -->
-				<!-- 						<li>应用模板来自：<a class="white-text" -->
-				<!-- 							href="http://materializecss.com">materializecss</a></li> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 2</a></li> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 3</a></li> -->
-				<!-- 						<li><a class="white-text" href="#!">Link 4</a></li> -->
-				<!-- 					</ul> -->
-				<!-- 				</div> -->
 			</div>
 		</div>
 		<div class="footer-copyright">
 			<div class="container">
-				Made by <a class="brown-text text-lighten-3"
+				Made by <a class="brown-text text-lighten-3" target="_blank"
 					href="http://materializecss.com">Materialize</a>
 			</div>
 		</div>
 	</footer>
-
-
 	<!--  Scripts-->
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="materialize/js/materialize.js"></script>
-	<script src="js/homepage.js"></script>
-
+	<script src="js/reg.js"></script>
+	<script src="js/login.js"></script>
 </body>
 </html>

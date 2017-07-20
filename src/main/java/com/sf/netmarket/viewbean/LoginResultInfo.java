@@ -9,29 +9,39 @@ import com.sf.netmarket.bizenum.LoginResult;
  * @author hao19
  *
  */
-public class ValidateInfo implements Serializable {
+public class LoginResultInfo implements Serializable {
   private static final long serialVersionUID = -9074022823821545072L;
   private String accessToken;
-  private String userId;
+  private Long userId;
   private LoginResult loginResult;
+  private String message;
 
-  private ValidateInfo() {}
+  private LoginResultInfo() {}
 
-  public static ValidateInfo success(String accessToken, String userId, LoginResult loginResult) {
-    return new ValidateInfo(accessToken, userId, loginResult);
+  public static LoginResultInfo success(String accessToken, Long userId, LoginResult loginResult) {
+    return new LoginResultInfo(accessToken, userId, loginResult);
   }
-  public ValidateInfo(String accessToken, String userId, LoginResult loginResult) {
+  public static LoginResultInfo err(LoginResult loginResult) {
+    return new LoginResultInfo(null, null, loginResult);
+  }
+  public LoginResultInfo(String accessToken, Long userId, LoginResult loginResult) {
     this();
     this.accessToken = accessToken;
     this.userId = userId;
-    this.loginResult = loginResult;
+    if (loginResult!= null) {
+      this.loginResult = loginResult;
+      this.message = loginResult.getMessage();
+    }
   }
 
-  public String getUsername() {
+  public String getMessage() {
+    return message;
+  }
+  public String getAccessToken() {
     return accessToken;
   }
 
-  public String getSecurityId() {
+  public Long getUserId() {
     return userId;
   }
 
